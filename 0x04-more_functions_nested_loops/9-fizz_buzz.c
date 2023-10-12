@@ -2,34 +2,38 @@
 #include<stdio.h>
 #include "main.h"
 /**
-  *main - Entry point
-  *Description: prints the numbers from 1 to 100
-  *
-  *Return: always 0
-  */
+ * main - Entry point
+ * Description: Prints numbers from 1 to 100,
+ * replacing multiples of 3 with "Fizz",
+ * multiples of 5 with "Buzz", and multiples of both 3 and 5 with "FizzBuzz".
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
-	int n;
+	int i;
 
-	for (n = 0; n <= 100; n++)
+	for (i = 1; i <= 100; i++)
 	{
-		if (n % 3 == 0 && n % 5 == 0)
+
+		if (i % 3 == 0 && i % 5 == 0)
 		{
 			printf("FizzBuzz");
 		}
-		else if (n % 3 == 0)
+		else if (i % 3 == 0)
 		{
 			printf("Fizz");
 		}
-		else if (n % 5 == 0)
+		else if (i % 5 == 0)
 		{
 			printf("Buzz");
 		}
 		else
 		{
-			printf("%d", n);
+			printf("%d", i);
 		}
-		if (n < 100)
+		if (i < 100)
 		{
 			printf(" ");
 		}
