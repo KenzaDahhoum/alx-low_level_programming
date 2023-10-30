@@ -1,10 +1,8 @@
 #include "main.h"
 
 /**
-*_strdup - function returns a pointer to a new string
-*which is a duplicate of the string str
-*Memory for the new string is obtained with malloc
-*and can be freed with free.
+*_strdup - function that returns a pointer to a newly allocated space in memory
+*which contains a copy of the string given as a parameter.
 *@str: string
 *Return: pointer, points to the same value of an pointer
 */
