@@ -5,15 +5,15 @@
  *@head: Pointer
  *Return: void
  */
-void free_listint2(listint_t *head)
+
+void free_listint2(listint_t **head)
 {
 	listint_t *node;
 
 	if (!head)
-	{
-		return ;
-	}
-
+	
+		return;
+	
 	while (*head)
 	{
 		node = (*head)->next;
