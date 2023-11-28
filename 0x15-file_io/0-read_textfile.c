@@ -1,50 +1,51 @@
 #include "main.h"
 
 /**
-  *read_textfile - function that read a text file
-  *and prints it to the POSIX standard output.
-  *@filename: file name
-  *@letters: nbr of letters it should read and print
-  *Return: 0 if success otherwise -1
-  */
+* read_textfile - reads a text file, output to POSIX
+* @filename: file namea
+* @letters: number of bytes
+* Return: 0 if success, otherwise -1
+*/
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *p;
-	int i;
-	ssize_t nbr, w;
+	char *buffer;
+	int file;
+	ssize_t count, wr;
 
 	if (!filename)
-	{
 		return (0);
-	}
-	i = open(filename, O_RDONLY);
-	if (i == -1)
-	{
+
+	file = open(filename, O_RDONLY);
+	if (file == -1)
 		return (0);
-	}
-	p = malloc(sizeof(char) * letters);
-	if (!p)
+
+	buffer = malloc(sizeof(char) * letters);
+	if (!buffer)
 	{
-		close(i);
-		return (0);
-	}
-	nbr = read(i, p, letters);
-	if (nbr == -1)
-	{
-		free(p);
-		close(i);
-		return (0);
-	}
-	w = write(STDOUT_FILENO, p, nbr);
-	if (w == -1 || w != nbr)
-	{
-		free(p);
-		close(i);
+		close(file);
 		return (0);
 	}
 
-	free(p);
-	close(i);
-	return (nbr);
+	count = read(file, buffer, letters);
+	if (count == -1)
+	{
+		free(buffer);
+		close(file);
+		return (0);
+	}
+
+	wr = write(STDOUT_FILENO, buffer, count);
+
+	if (wr == -1 || wr != count)
+	{
+		free(buffer);
+		close(file);
+		return (0);
+	}
+
+	free(buffer);
+	close(file);
+
+	return (count);
 }
