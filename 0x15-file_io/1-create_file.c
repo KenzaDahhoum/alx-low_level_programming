@@ -6,7 +6,7 @@
  * @text_content: buffer
  * Return: 1 on success, -1 Otherwise
  */
- 
+
 int create_file(const char *filename, char *text_content)
 {
 	int fdesc;
