@@ -8,6 +8,8 @@
 #include <stddef.h>
 #include <string.h>
 
+#define BUFFER_SIZE 1024
+
 void error_exit(int code, const char *message, const char *filename, int fd);
 ssize_t read_textfile(const char *filename, size_t letters);
 int _putchar(char c);
