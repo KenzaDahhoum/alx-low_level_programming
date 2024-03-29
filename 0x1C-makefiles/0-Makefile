@@ -1,2 +1,15 @@
-all:
-	gcc main.c school.c -o school
+# Name of the executable
+EXECUTABLE := school
+
+# Default rule
+all: $(EXECUTABLE)
+
+# Rule to build the executable
+$(EXECUTABLE): main.c school.c
+	gcc main.c school.c -o $(EXECUTABLE)
+
+# Rule to clean up generated files
+clean:
+	rm -f $(EXECUTABLE)
+
+.PHONY: all clean
